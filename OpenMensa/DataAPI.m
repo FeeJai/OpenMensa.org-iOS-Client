@@ -20,4 +20,22 @@ static DataAPI *pInstance = nil;
     return pInstance;
 }
 
+- (NSDictionary *) getData {
+    return nil;
+}
+
+- (void) APIDataReceived:(NSString *)APIData {
+    
+    SBJsonParser *parser = [SBJsonParser alloc];
+
+    NSArray *object = [parser objectWithString:APIData error:nil];
+    
+    for (NSDictionary *status in object)
+    {
+        // You can retrieve individual values using objectForKey on the status NSDictionary
+        // This will print the tweet and username to the console
+        NSLog(@"%@ - %@", [status objectForKey:@"text"], [[status objectForKey:@"user"] objectForKey:@"screen_name"]);
+    }
+}
+
 @end

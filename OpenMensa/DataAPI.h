@@ -7,16 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SBJson.h"
+
 
 #import "NetworkController.h"
 
+
 // DataAPI is a Singleton!
-@interface DataAPI : NSObject {
+@interface DataAPI : NSObject <NetworkDataUpdateProtocol> {
     
     
 }
 
 // Returns the singleton instance
 +(DataAPI *)instance;
+
+- (NSDictionary *) getData;
 
 @end

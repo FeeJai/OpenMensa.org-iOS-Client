@@ -26,6 +26,7 @@
 		011B659D15D53AFB00BCD87B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B659115D53AFB00BCD87B /* SBJsonWriter.m */; };
 		011B65A015D53D9800BCD87B /* DataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B659F15D53D9800BCD87B /* DataAPI.m */; };
 		011B65A315D53EC900BCD87B /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B65A215D53EC900BCD87B /* NetworkController.m */; };
+		011B65A515D54B6200BCD87B /* forkAndKnife.png in Resources */ = {isa = PBXBuildFile; fileRef = 011B65A415D54B6200BCD87B /* forkAndKnife.png */; };
 		01862E3C15D527AE000407B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3B15D527AE000407B3 /* UIKit.framework */; };
 		01862E3E15D527AE000407B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3D15D527AE000407B3 /* Foundation.framework */; };
 		01862E4015D527AE000407B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3F15D527AE000407B3 /* CoreGraphics.framework */; };
@@ -78,6 +79,7 @@
 		011B659F15D53D9800BCD87B /* DataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAPI.m; sourceTree = "<group>"; };
 		011B65A115D53EC900BCD87B /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
 		011B65A215D53EC900BCD87B /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
+		011B65A415D54B6200BCD87B /* forkAndKnife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forkAndKnife.png; sourceTree = "<group>"; };
 		01862E3715D527AE000407B3 /* OpenMensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01862E3B15D527AE000407B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01862E3D15D527AE000407B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -244,6 +246,7 @@
 		01862E7715D528E2000407B3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				011B65A415D54B6200BCD87B /* forkAndKnife.png */,
 				01862E5715D527AE000407B3 /* second.png */,
 				01862E5915D527AE000407B3 /* second@2x.png */,
 				01862E5015D527AE000407B3 /* first.png */,
@@ -317,6 +320,7 @@
 				011B657315D52DD000BCD87B /* 10-medical.png in Resources */,
 				011B657515D52DD600BCD87B /* 07-map-marker.png in Resources */,
 				011B657715D52DE400BCD87B /* 111-user.png in Resources */,
+				011B65A515D54B6200BCD87B /* forkAndKnife.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
