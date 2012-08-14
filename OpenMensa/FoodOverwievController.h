@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataAPI.h"
 
-@interface FoodOverwievController : UITableViewController
+@interface FoodOverwievController : UITableViewController {    
+    DataAPI *api;
+}
 
 -(id) initWithCafereiaId: (NSNumber*) cafeteriaId;
 @end

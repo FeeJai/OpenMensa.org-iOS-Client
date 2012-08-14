@@ -77,6 +77,34 @@ static FavouriteCafeteriaStorage *pInstance = nil;
 
 }
 
+- (void)moveObjectFromIndex:(NSUInteger)from toIndex:(NSUInteger)to
+{
+
+}
+
+
+-(void) moveCafeteria: (NSNumber*) cafeteriaIndex toPlace:(NSNumber*) newIndex {
+
+    NSLog(@"Moving from %@ to %@",cafeteriaIndex, newIndex);
+
+    NSUInteger from = [cafeteriaIndex integerValue];
+    NSUInteger to = [newIndex integerValue];
+
+    if (to != from) {
+        id obj = [favouriteCafeterias objectAtIndex:from];
+        [favouriteCafeterias removeObjectAtIndex:from];
+        if (to >= [favouriteCafeterias count]) {
+            [favouriteCafeterias addObject:obj];
+        } else {
+            [favouriteCafeterias insertObject:obj atIndex:to];
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:favouriteCafeterias] forKey:@"favouriteCafeterias"];
+    
+}
+
+
 -(NSArray *) favouriteCafeterias {
     return [NSArray arrayWithArray:favouriteCafeterias];
 }
