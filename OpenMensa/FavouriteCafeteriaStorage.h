@@ -11,14 +11,14 @@
 //This class stores the favourite cafeterias locally on the phone in an Array. The permanent storage is in an NSArray which is not writeable, changes are done on an NSMutableArray which is created on init
 
 
-@interface FavouriteMensaInformation : NSObject {
+@interface FavouriteCafeteriaStorage : NSObject {
     
     NSMutableArray* favouriteCafeterias;
 }
 
 
 // Returns the singleton instance
-+(FavouriteMensaInformation *)instance;
++(FavouriteCafeteriaStorage *)instance;
 
 -(bool) cafeteriaIsFavourite: (NSNumber*) cafeteriaId;
 -(void) addFavouriteCafeteria: (NSNumber*) cafeteriaId;

@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 openmensa.org. All rights reserved.
 //
 
-#import "FavouriteMensaInformation.h"
+#import "FavouriteCafeteriaStorage.h"
 
-@implementation FavouriteMensaInformation
+@implementation FavouriteCafeteriaStorage
 
 
 // Singleton instance and method
-static FavouriteMensaInformation *pInstance = nil;
+static FavouriteCafeteriaStorage *pInstance = nil;
 
-+(FavouriteMensaInformation *)instance {
++(FavouriteCafeteriaStorage *)instance {
     @synchronized(self) {
         if (pInstance == nil) pInstance = [[self alloc] init];
     }

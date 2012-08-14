@@ -44,17 +44,6 @@
 
 @implementation AddFavouriteMapViewController
 
-- (void)threadMain:(id)data {
-    
-    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
-    [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
-    
-    while (1) { // 'isAlive' is a variable that is used to control the thread existence...
-        [runloop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-    
-}
-
 
 -(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address {
     
@@ -100,6 +89,7 @@
     }
 }
 
+
 -(void)updateMap {
     
     NSDate *lastAPIpdate = [api lastUpdate];
@@ -141,6 +131,7 @@
 
 }
 
+
 #pragma mark - MapViewController
 
 
@@ -153,7 +144,7 @@
     }
     
     api = [DataAPI instance];
-    
+    favourites = [FavouriteCafeteriaStorage instance];
     mapView = [[MKMapView alloc] init];
     mapView.showsUserLocation = YES;
     mapView.delegate = self;
@@ -165,6 +156,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -172,24 +164,50 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
 
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
-#pragma mark -
-#pragma mark MKMapViewDelegate protocol
+
+#pragma mark - MKMapViewDelegate protocol
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    NSNumber *cafeteriaID = [(AddressAnnotation*) [view annotation] cafeteriaID];
+    NSLog(@"%@",cafeteriaID);
+}
+
+
+-(MKAnnotationView *) mapView:(MKMapView *)fMapView viewForAnnotation:(id <MKAnnotation>) annotation{
+    if (annotation == mapView.userLocation) {
+        return nil; // default to blue dot
+    }
+    MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    pinView.pinColor = MKPinAnnotationColorRed;
+    pinView.animatesDrop = YES;
+    pinView.canShowCallout = YES;
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    pinView.rightCalloutAccessoryView = rightButton;
+    
+    return pinView;
+}
+
 
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
@@ -222,30 +240,25 @@
 
 }
 
+
 -(void)mapView:(MKMapView *)fMapView regionDidChangeAnimated:(BOOL)animated {
     //[self updateMap];
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-   NSNumber *cafeteriaID = [(AddressAnnotation*) [view annotation] cafeteriaID];
-    NSLog(@"%@",cafeteriaID);
-}
 
+#pragma mark - threading stuff
 
--(MKAnnotationView *) mapView:(MKMapView *)fMapView viewForAnnotation:(id <MKAnnotation>) annotation{
-    if (annotation == mapView.userLocation) {
-        return nil; // default to blue dot
-    }
-    MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    pinView.pinColor = MKPinAnnotationColorRed;
-    pinView.animatesDrop = YES;
-    pinView.canShowCallout = YES;
+- (void)threadMain:(id)data {
     
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    pinView.rightCalloutAccessoryView = rightButton;
-
-    return pinView;
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+    
+    while (1) { // 'isAlive' is a variable that is used to control the thread existence...
+        [runloop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    
 }
+
 
 
 @end
