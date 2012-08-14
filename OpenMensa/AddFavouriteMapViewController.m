@@ -68,6 +68,14 @@
 }
 
 
+-(void)addPinForCafeteria: (NSDictionary*) cafeteria {
+    AddressAnnotation *pin = [[AddressAnnotation alloc]
+                              initWithCoordinate: [self findCoordinatesForAddress:[cafeteria objectForKey:@"address"]]
+                              name:[cafeteria objectForKey:@"name"]
+                              address:[cafeteria objectForKey:@"address"]
+                              andID: [cafeteria objectForKey:@"id"]];
+    [mapView addAnnotation:pin];
+}
 
 -(void)updateMap {
     
@@ -82,13 +90,8 @@
         //We got the data, let's get the pins onto the map
 
         for (NSDictionary *cafeteria in [api cafeterias]) {
-           AddressAnnotation *pin = [[AddressAnnotation alloc]
-                                      initWithCoordinate: [self findCoordinatesForAddress:[cafeteria objectForKey:@"address"]]
-                                      name:[cafeteria objectForKey:@"name"]
-                                      address:[cafeteria objectForKey:@"address"]
-                                        andID: [cafeteria objectForKey:@"id"]];
-            [mapView addAnnotation:pin];
-
+            
+            [self performSelectorInBackground:@selector(addPinForCafeteria:) withObject:cafeteria]; //multithreaded - no more freezing
         }
         
         app.networkActivityIndicatorVisible = NO;
@@ -96,7 +99,8 @@
         
         
     } else {
-        
+        NSLog(@"No new data on API - retry");
+
         //Make API refresh data and try again in 5 seconds
         app.networkActivityIndicatorVisible = YES; 
         [api getData];
@@ -129,7 +133,6 @@
     
     //start loading data and auto updating
     [self updateMap];
-
     return self;
 }
 
