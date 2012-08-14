@@ -8,7 +8,6 @@
 
 #import "ShowMenuNavigationController.h"
 
-#import "CafeteriaOverview.h"
 
 
 @interface ShowMenuNavigationController ()
@@ -18,13 +17,22 @@
 @implementation ShowMenuNavigationController
 
 
+
+#pragma mark - DataAPIDelegate
+
+-(void)APIDataHasBeenUpdated {
+    [firstView APIDataHasBeenUpdated];
+}
+
+#pragma mark -
+
 -(void) viewDidLoad
 {
     
     [super viewDidLoad];
 
-    UIViewController *viewController1 = [[CafeteriaOverview alloc] initWithNibName:@"CafeteriaOverview" bundle:nil];
-    [self pushViewController:viewController1 animated:NO];
+    firstView = [[CafeteriaOverview alloc] initWithNibName:@"CafeteriaOverview" bundle:nil];
+    [self pushViewController:firstView animated:NO];
     
 }
 

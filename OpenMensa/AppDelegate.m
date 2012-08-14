@@ -68,10 +68,12 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
         
-    if([viewController isKindOfClass:[CafeteriaOverview class]]) {
-        [(CafeteriaOverview*) viewController APIDataHasBeenUpdated];
+    if([viewController isKindOfClass:[ShowMenuNavigationController class]]) {
+        [(ShowMenuNavigationController*) viewController APIDataHasBeenUpdated];
+    } else if([viewController isKindOfClass:[AddFavouriteMapViewController class]]) {
+        [(AddFavouriteMapViewController*) viewController refreshPins];
     }
-    
+            
 }
 
 

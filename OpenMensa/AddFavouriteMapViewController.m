@@ -182,6 +182,14 @@
 
 #pragma mark - MKMapViewDelegate protocol
 
+-(void)refreshPins {
+    NSLog(@"refreshing");
+    NSArray *annotations = [mapView annotations];
+    
+    [mapView removeAnnotations:annotations];
+    [mapView addAnnotations:annotations];
+}
+
 
 - (void)mapView:(MKMapView *)pMapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 

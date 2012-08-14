@@ -22,6 +22,7 @@
 
 -(bool) cafeteriaIsFavourite: (NSNumber*) cafeteriaId;
 -(void) addFavouriteCafeteria: (NSNumber*) cafeteriaId;
+-(void) removeFavouriteCafeteria: (NSNumber*) cafeteriaId;
 -(NSArray *) favouriteCafeterias;
  
 @end

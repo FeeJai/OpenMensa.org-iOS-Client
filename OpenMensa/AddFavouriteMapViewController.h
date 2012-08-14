@@ -36,5 +36,6 @@
 
 -(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address;
 -(void)updateMap;
+-(void)refreshPins;
 
 @end

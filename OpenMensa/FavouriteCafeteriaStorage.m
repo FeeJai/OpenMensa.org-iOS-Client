@@ -67,6 +67,16 @@ static FavouriteCafeteriaStorage *pInstance = nil;
     }
 }
 
+-(void) removeFavouriteCafeteria: (NSNumber*) cafeteriaId {
+    
+    [favouriteCafeterias removeObjectAtIndex:[cafeteriaId intValue]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:favouriteCafeterias] forKey:@"favouriteCafeterias"];
+    
+    NSLog(@"Removed cafeteria %@ from local favourites", cafeteriaId);
+
+}
+
 -(NSArray *) favouriteCafeterias {
     return [NSArray arrayWithArray:favouriteCafeterias];
 }

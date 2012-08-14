@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataAPI.h"
+#import "CafeteriaOverview.h"
 
-@interface ShowMenuNavigationController : UINavigationController
+@interface ShowMenuNavigationController : UINavigationController < DataAPIDelegate > {
+    CafeteriaOverview *firstView;
+}
 
 @end
