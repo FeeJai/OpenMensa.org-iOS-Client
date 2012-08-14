@@ -11,7 +11,12 @@
 
 @interface FoodOverwievController : UITableViewController {    
     DataAPI *api;
+    NSDictionary *cafeteria;
+    
+    NSMutableArray *foodToday;
+    NSMutableArray *foodTomorrow;
+
 }
 
--(id) initWithCafereiaId: (NSNumber*) cafeteriaId;
+-(id) initWithCafeteria: (NSDictionary*) cafeteria;
 @end

@@ -82,4 +82,16 @@ static DataAPI *pInstance = nil;
 
 }
 
+- (NSDictionary *) getCafeteria:(NSNumber*)cafeteriaId {
+
+    
+    for(NSDictionary *cafeteria in cafeterias) {
+        if ([cafeteriaId isEqualToNumber:[cafeteria objectForKey:@"id"]]) {
+            return cafeteria;
+        }
+    }
+    
+    return nil;
+}
+
 @end

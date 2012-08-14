@@ -36,6 +36,7 @@
 // Returns the singleton instance
 + (DataAPI *)instance;
 - (NSDictionary *) getData;
+- (NSDictionary *) getCafeteria:(NSNumber*)cafeteriaId;
 
 @property(nonatomic, retain) NSArray *cafeterias;
 @property(nonatomic, retain) NSDate *lastUpdate;

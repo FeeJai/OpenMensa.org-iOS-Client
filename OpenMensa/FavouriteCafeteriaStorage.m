@@ -85,8 +85,6 @@ static FavouriteCafeteriaStorage *pInstance = nil;
 
 -(void) moveCafeteria: (NSNumber*) cafeteriaIndex toPlace:(NSNumber*) newIndex {
 
-    NSLog(@"Moving from %@ to %@",cafeteriaIndex, newIndex);
-
     NSUInteger from = [cafeteriaIndex integerValue];
     NSUInteger to = [newIndex integerValue];
 
@@ -102,6 +100,11 @@ static FavouriteCafeteriaStorage *pInstance = nil;
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:favouriteCafeterias] forKey:@"favouriteCafeterias"];
     
+}
+
+
+-(NSNumber*) cafeteriaIdAtIndex:(NSUInteger)index {
+    return [favouriteCafeterias objectAtIndex:index];
 }
 
 

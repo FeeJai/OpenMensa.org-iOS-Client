@@ -24,6 +24,8 @@
 -(void) addFavouriteCafeteria: (NSNumber*) cafeteriaId;
 -(void) removeFavouriteCafeteria: (NSNumber*) cafeteriaId;
 -(void) moveCafeteria: (NSNumber*) cafeteriaIndex toPlace:(NSNumber*) newIndex;
+
+-(NSNumber*) cafeteriaIdAtIndex:(NSUInteger)index;
 -(NSArray *) favouriteCafeterias;
  
 @end

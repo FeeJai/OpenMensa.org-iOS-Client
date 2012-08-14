@@ -63,7 +63,7 @@
 #pragma mark - UITableViewDataSource protocol
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 1) return NSLocalizedString(@"Deine Mensa Favoriten:", @"favourite cafeterias");;
+    if (section == 0) return NSLocalizedString(@"Deine Mensa Favoriten:", @"favourite cafeterias");;
     return nil;
 }
 
@@ -127,9 +127,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
-    FoodOverwievController *foodOverview = [[FoodOverwievController alloc] initWithCafereiaId:[NSNumber numberWithInt:indexPath.row]];
+    id cafeteria = [api getCafeteria:[favourites cafeteriaIdAtIndex:indexPath.row]];
+
     
-    [self.navigationController pushViewController:foodOverview animated:YES];
+    FoodOverwievController *foodOverview = [[FoodOverwievController alloc] initWithCafeteria:cafeteria];
+                                            
+    [[self navigationController] pushViewController:foodOverview animated:YES];
     
     
     /*

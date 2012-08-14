@@ -14,8 +14,9 @@
 
 @implementation FoodOverwievController
 
--(id) initWithCafereiaId: (NSNumber*) cafeteriaId {
+-(id) initWithCafeteria: (NSDictionary*) lCafeteria {
     
+    cafeteria = lCafeteria;
     return [self initWithStyle:UITableViewStylePlain];
     
 }
@@ -25,6 +26,8 @@
     self = [super initWithStyle:style];
     if (self) {
         api = [DataAPI instance];
+        foodToday = [[NSMutableArray alloc] init];
+        foodTomorrow = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -33,6 +36,47 @@
 {
     [super viewDidLoad];
 
+    self.title = [cafeteria objectForKey:@"name"];
+
+    // RFC3339 date formatting
+    NSString *dateString; //date = "2012-08-14T02:00:00+02:00";
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+
+    for (NSDictionary *meal in [cafeteria objectForKey:@"meals"]) {
+
+        dateString = [meal objectForKey:@"date"];
+        
+        NSDate *apiDdate;
+        NSError *error;
+        
+        [formatter getObjectValue:&apiDdate forString:dateString range:nil error:&error];
+
+        if(error) {
+         NSLog(@"%@", error);
+            continue;
+        }
+        
+        //Time comparison is not easy on cocoa
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+        NSDate *today = [cal dateFromComponents:components];
+        
+        components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate dateWithTimeIntervalSinceNow:24*60*60]];
+        NSDate *tomorrow = [cal dateFromComponents:components];
+
+        components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:apiDdate];
+        NSDate *otherDate = [cal dateFromComponents:components];
+        
+        if([today isEqualToDate:otherDate]) {
+            [foodToday addObject:meal];
+        } else  if([tomorrow isEqualToDate:otherDate]) {
+            [foodTomorrow addObject:meal];
+        }
+    
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -56,24 +100,57 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    if ([foodTomorrow count])
+        return 2;
+    else
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+    if (section == 0)
+        return [foodTomorrow count];
+    else if (section == 1)
+        return [foodTomorrow count];
+    
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    // Configure the cell...
+    if (section == 0)
+        return NSLocalizedString(@"Heute:", @"today");
+    
+    else if (section == 1)
+        return NSLocalizedString(@"Morgen:", @"tomorrow");
+
+    return nil;
+
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger section = indexPath.section, row = indexPath.row;
+    NSString* identifier = @"foodCell";
+    NSArray* relevantFood;
+    
+    if (section == 0) {
+        relevantFood = foodToday;
+    } else if (section == 1) {
+        relevantFood = foodTomorrow;
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+   
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    
+    cell.textLabel.text = [[relevantFood objectAtIndex:row] objectForKey:@"name"];
+    cell.detailTextLabel.text = [[relevantFood objectAtIndex:row] objectForKey:@"description"];
+    
+    cell.textLabel.font = [UIFont systemFontOfSize:16.0];
     
     return cell;
 }
@@ -121,6 +198,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
