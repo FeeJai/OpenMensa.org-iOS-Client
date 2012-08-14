@@ -184,10 +184,8 @@
 
 -(void)refreshPins {
 
-    if(!lastMapUpdate) {
-        lastMapUpdate = [NSDate date];
+    if(!lastMapUpdate)
         return;
-    }
     
     NSArray *annotations = [mapView annotations];
     
