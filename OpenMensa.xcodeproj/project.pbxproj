@@ -1,0 +1,320 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01862E3C15D527AE000407B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3B15D527AE000407B3 /* UIKit.framework */; };
+		01862E3E15D527AE000407B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3D15D527AE000407B3 /* Foundation.framework */; };
+		01862E4015D527AE000407B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3F15D527AE000407B3 /* CoreGraphics.framework */; };
+		01862E4615D527AE000407B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01862E4415D527AE000407B3 /* InfoPlist.strings */; };
+		01862E4815D527AE000407B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4715D527AE000407B3 /* main.m */; };
+		01862E4C15D527AE000407B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4B15D527AE000407B3 /* AppDelegate.m */; };
+		01862E4F15D527AE000407B3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4E15D527AE000407B3 /* FirstViewController.m */; };
+		01862E5115D527AE000407B3 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5015D527AE000407B3 /* first.png */; };
+		01862E5315D527AE000407B3 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5215D527AE000407B3 /* first@2x.png */; };
+		01862E5615D527AE000407B3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E5515D527AE000407B3 /* SecondViewController.m */; };
+		01862E5815D527AE000407B3 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5715D527AE000407B3 /* second.png */; };
+		01862E5A15D527AE000407B3 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5915D527AE000407B3 /* second@2x.png */; };
+		01862E5D15D527AE000407B3 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5B15D527AE000407B3 /* FirstViewController.xib */; };
+		01862E6015D527AE000407B3 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5E15D527AE000407B3 /* SecondViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01862E3715D527AE000407B3 /* OpenMensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01862E3B15D527AE000407B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		01862E3D15D527AE000407B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		01862E3F15D527AE000407B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		01862E4315D527AE000407B3 /* OpenMensa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenMensa-Info.plist"; sourceTree = "<group>"; };
+		01862E4515D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		01862E4715D527AE000407B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01862E4915D527AE000407B3 /* OpenMensa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenMensa-Prefix.pch"; sourceTree = "<group>"; };
+		01862E4A15D527AE000407B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		01862E4B15D527AE000407B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		01862E4D15D527AE000407B3 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		01862E4E15D527AE000407B3 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		01862E5015D527AE000407B3 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		01862E5215D527AE000407B3 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		01862E5415D527AE000407B3 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		01862E5515D527AE000407B3 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		01862E5715D527AE000407B3 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		01862E5915D527AE000407B3 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		01862E5C15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
+		01862E5F15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01862E3415D527AE000407B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01862E3C15D527AE000407B3 /* UIKit.framework in Frameworks */,
+				01862E3E15D527AE000407B3 /* Foundation.framework in Frameworks */,
+				01862E4015D527AE000407B3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01862E2C15D527AE000407B3 = {
+			isa = PBXGroup;
+			children = (
+				01862E4115D527AE000407B3 /* OpenMensa */,
+				01862E3A15D527AE000407B3 /* Frameworks */,
+				01862E3815D527AE000407B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01862E3815D527AE000407B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01862E3715D527AE000407B3 /* OpenMensa.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01862E3A15D527AE000407B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01862E3B15D527AE000407B3 /* UIKit.framework */,
+				01862E3D15D527AE000407B3 /* Foundation.framework */,
+				01862E3F15D527AE000407B3 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		01862E4115D527AE000407B3 /* OpenMensa */ = {
+			isa = PBXGroup;
+			children = (
+				01862E4A15D527AE000407B3 /* AppDelegate.h */,
+				01862E4B15D527AE000407B3 /* AppDelegate.m */,
+				01862E4D15D527AE000407B3 /* FirstViewController.h */,
+				01862E4E15D527AE000407B3 /* FirstViewController.m */,
+				01862E5015D527AE000407B3 /* first.png */,
+				01862E5215D527AE000407B3 /* first@2x.png */,
+				01862E5415D527AE000407B3 /* SecondViewController.h */,
+				01862E5515D527AE000407B3 /* SecondViewController.m */,
+				01862E5715D527AE000407B3 /* second.png */,
+				01862E5915D527AE000407B3 /* second@2x.png */,
+				01862E5B15D527AE000407B3 /* FirstViewController.xib */,
+				01862E5E15D527AE000407B3 /* SecondViewController.xib */,
+				01862E4215D527AE000407B3 /* Supporting Files */,
+			);
+			path = OpenMensa;
+			sourceTree = "<group>";
+		};
+		01862E4215D527AE000407B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01862E4315D527AE000407B3 /* OpenMensa-Info.plist */,
+				01862E4415D527AE000407B3 /* InfoPlist.strings */,
+				01862E4715D527AE000407B3 /* main.m */,
+				01862E4915D527AE000407B3 /* OpenMensa-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01862E3615D527AE000407B3 /* OpenMensa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01862E6315D527AE000407B3 /* Build configuration list for PBXNativeTarget "OpenMensa" */;
+			buildPhases = (
+				01862E3315D527AE000407B3 /* Sources */,
+				01862E3415D527AE000407B3 /* Frameworks */,
+				01862E3515D527AE000407B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenMensa;
+			productName = OpenMensa;
+			productReference = 01862E3715D527AE000407B3 /* OpenMensa.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01862E2E15D527AE000407B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = openmensa.org;
+			};
+			buildConfigurationList = 01862E3115D527AE000407B3 /* Build configuration list for PBXProject "OpenMensa" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 01862E2C15D527AE000407B3;
+			productRefGroup = 01862E3815D527AE000407B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01862E3615D527AE000407B3 /* OpenMensa */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01862E3515D527AE000407B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01862E4615D527AE000407B3 /* InfoPlist.strings in Resources */,
+				01862E5115D527AE000407B3 /* first.png in Resources */,
+				01862E5315D527AE000407B3 /* first@2x.png in Resources */,
+				01862E5815D527AE000407B3 /* second.png in Resources */,
+				01862E5A15D527AE000407B3 /* second@2x.png in Resources */,
+				01862E5D15D527AE000407B3 /* FirstViewController.xib in Resources */,
+				01862E6015D527AE000407B3 /* SecondViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01862E3315D527AE000407B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01862E4815D527AE000407B3 /* main.m in Sources */,
+				01862E4C15D527AE000407B3 /* AppDelegate.m in Sources */,
+				01862E4F15D527AE000407B3 /* FirstViewController.m in Sources */,
+				01862E5615D527AE000407B3 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		01862E4415D527AE000407B3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01862E4515D527AE000407B3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		01862E5B15D527AE000407B3 /* FirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01862E5C15D527AE000407B3 /* en */,
+			);
+			name = FirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		01862E5E15D527AE000407B3 /* SecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01862E5F15D527AE000407B3 /* en */,
+			);
+			name = SecondViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01862E6115D527AE000407B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		01862E6215D527AE000407B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01862E6415D527AE000407B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenMensa/OpenMensa-Prefix.pch";
+				INFOPLIST_FILE = "OpenMensa/OpenMensa-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		01862E6515D527AE000407B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenMensa/OpenMensa-Prefix.pch";
+				INFOPLIST_FILE = "OpenMensa/OpenMensa-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01862E3115D527AE000407B3 /* Build configuration list for PBXProject "OpenMensa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01862E6115D527AE000407B3 /* Debug */,
+				01862E6215D527AE000407B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01862E6315D527AE000407B3 /* Build configuration list for PBXNativeTarget "OpenMensa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01862E6415D527AE000407B3 /* Debug */,
+				01862E6515D527AE000407B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01862E2E15D527AE000407B3 /* Project object */;
+}
