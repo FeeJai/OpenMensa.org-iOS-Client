@@ -184,15 +184,24 @@
 
 -(void)refreshPins {
 
+    if(!lastMapUpdate)
+        return;
+    
     NSArray *annotations = [mapView annotations];
     
-    for(AddressAnnotation *annotation in annotations) {
+    for(id <MKAnnotation> annotation in annotations) {
         
-        MKPinAnnotationView *pinView = (MKPinAnnotationView*) [mapView viewForAnnotation:annotation];
+        if (annotation == mapView.userLocation) {
+            continue;
+        }
+        
+        AddressAnnotation* addressAnnotation = (AddressAnnotation*) annotation;
+        
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*) [mapView viewForAnnotation:addressAnnotation];
         
         UIButton *rightCalloutAccessory = nil;
         
-        if ([favourites cafeteriaIsFavourite:[annotation cafeteriaID]]) {
+        if ([favourites cafeteriaIsFavourite:[addressAnnotation cafeteriaID]]) {
             pinView.pinColor = MKPinAnnotationColorPurple;
         } else {
             pinView.pinColor = MKPinAnnotationColorRed;
@@ -249,9 +258,7 @@
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     //[theMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
-    
-    static NSDate *lastMapUpdate;
-    
+        
     if(!lastMapUpdate)
         lastMapUpdate = [NSDate date];
     

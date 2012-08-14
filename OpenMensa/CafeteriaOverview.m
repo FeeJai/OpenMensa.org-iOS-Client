@@ -66,9 +66,7 @@
         NSLog(@"Waiting for Data on API before table with food can be viewed");
         return 0;
     }
-    
-    NSLog(@"udpating table");
-    
+
     if (section == 0) return [[favourites favouriteCafeterias] count];
     return 0;
 }

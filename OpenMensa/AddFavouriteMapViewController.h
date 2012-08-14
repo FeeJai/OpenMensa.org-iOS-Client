@@ -32,6 +32,7 @@
     FavouriteCafeteriaStorage *favourites;
     
     MKMapView *mapView;
+    NSDate *lastMapUpdate;
 }
 
 -(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address;

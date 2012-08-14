@@ -22,7 +22,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    //UIViewController *viewController1 = [[CafeteriaOverview alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
     UINavigationController *viewController1 = [[ShowMenuNavigationController alloc] initWithNibName:nil bundle:nil];
 
     UIViewController *viewController2 = [[AddFavouriteMapViewController alloc] initWithNibName:@"AddFavouriteMapViewController" bundle:nil];
@@ -30,7 +29,6 @@
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
-    //self.tabBarController.tabBar.
     [[self.tabBarController.viewControllers objectAtIndex:0] setTitle:NSLocalizedString(@"Speiseplan anzeigen", @"Menu")];
 
     self.window.rootViewController = self.tabBarController;
@@ -54,7 +52,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [(ShowMenuNavigationController*) [self.tabBarController.viewControllers objectAtIndex:0] APIDataHasBeenUpdated];
+    [(AddFavouriteMapViewController*) [self.tabBarController.viewControllers objectAtIndex:1] refreshPins];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
