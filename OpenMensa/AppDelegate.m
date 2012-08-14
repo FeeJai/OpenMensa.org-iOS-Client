@@ -25,6 +25,7 @@
     UIViewController *viewController2 = [[AddFavouriteMapViewController alloc] initWithNibName:@"AddFavouriteMapViewController" bundle:nil];
     UIViewController *viewController3 = [[SocialViewController alloc] initWithNibName:@"SocialViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];    
@@ -60,12 +61,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-/*
+
 // Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+        
+    if([viewController isKindOfClass:[MainScreenViewController class]]) {
+        [(MainScreenViewController*) viewController APIDataHasBeenUpdated];
+    }
+    
 }
-*/
+
 
 /*
 // Optional UITabBarControllerDelegate method.

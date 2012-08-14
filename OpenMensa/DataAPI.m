@@ -10,7 +10,7 @@
 
 @implementation DataAPI
 
-@synthesize cafeterias, lastUpdate;
+@synthesize cafeterias, lastUpdate, delegate;
 
 // Singleton instance and method
 static DataAPI *pInstance = nil;
@@ -28,6 +28,7 @@ static DataAPI *pInstance = nil;
     
     cafeterias = [[NSMutableArray alloc] init];
     lastUpdate = nil;
+    delegate = nil;
     
     return self;
 }
@@ -73,6 +74,7 @@ static DataAPI *pInstance = nil;
     //Save the cafeterias for access and set the last update to the current date
     cafeterias = [cafeteriasUnsorted sortedArrayUsingDescriptors:sortDescriptors];
     lastUpdate = [NSDate date];
+    [delegate APIDataHasBeenUpdated];
     
 
     if(error)

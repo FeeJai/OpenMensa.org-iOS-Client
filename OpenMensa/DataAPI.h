@@ -10,25 +10,38 @@
 #import "SBJson.h"
 
 
+
+@protocol DataAPIDelegate
+- (void) APIDataHasBeenUpdated;
+@end
+
+
 #import "NetworkController.h"
+#import "MainScreenViewController.h"
+
 
 
 //*** THIS IS THE IMPLEMENTATION FOR THE V1 API - NEEDS TO BE UPDATED ONCE FUNCTIONALITY IS AVAILABLE
+
 
 // DataAPI is a Singleton!
 @interface DataAPI : NSObject <NetworkDataUpdateProtocol> {
     
     NSArray *cafeterias;
     NSDate *lastUpdate;
-    
+
+    id <DataAPIDelegate> delegate;
 }
 
 // Returns the singleton instance
-+(DataAPI *)instance;
++ (DataAPI *)instance;
 - (NSDictionary *) getData;
 
-@property(nonatomic,retain) NSArray *cafeterias;
-@property(nonatomic,retain) NSDate *lastUpdate;
+@property(nonatomic, retain) NSArray *cafeterias;
+@property(nonatomic, retain) NSDate *lastUpdate;
+@property(nonatomic) id <DataAPIDelegate> delegate;
 
 
 @end
+
+

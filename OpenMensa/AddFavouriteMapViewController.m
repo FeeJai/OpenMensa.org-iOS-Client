@@ -98,12 +98,8 @@
     if (lastAPIpdate && ([lastAPIpdate timeIntervalSinceNow] > -60)) {
         
         //Data was received within the last 60 seconds
-        NSLog(@"Updating Map");
         
         //We got the data, let's get the pins onto the map
-
-        
-        //NSThread *pinsThread = [[NSThread alloc] init];
         NSThread *pinsThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain:) object:nil];
 
         for (NSDictionary *cafeteria in [api cafeterias]) {
@@ -120,7 +116,7 @@
         
         
     } else {
-        NSLog(@"No new data on API - retry");
+        NSLog(@"No new cafeteria map information on API yet, retry in 5 seconnds");
 
         //Make API refresh data and try again in 5 seconds
         app.networkActivityIndicatorVisible = YES; 

@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainScreenViewController : UIViewController
+@class DataAPI; //Forward declaration to allow import of DataAPI.h which imports MainScreenViewController.h
+
+#import "FavouriteCafeteriaStorage.h"
+#import "DataAPI.h"
+
+
+@interface MainScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, DataAPIDelegate> {
+    IBOutlet UITableView *table;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    
+    DataAPI *api;
+    FavouriteCafeteriaStorage *favourites;
+}
 
 @end
