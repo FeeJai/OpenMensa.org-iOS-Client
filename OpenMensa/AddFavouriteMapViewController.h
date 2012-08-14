@@ -16,25 +16,22 @@
     CLLocationCoordinate2D coordinate;
     NSString *name;
     NSString *address;
+    NSNumber *cafeteriaID;
 }
+
+@property(nonatomic,retain) NSNumber *cafeteriaID;
+
 
 @end
 
 
 @interface AddFavouriteMapViewController : UIViewController <MKMapViewDelegate> {
     DataAPI *api;
-    
     MKMapView *mapView;
-    NSString *name;
-    NSString *address;
-    AddressAnnotation *pin;
-    CLLocationCoordinate2D location;
 }
 
 
--(void)showAddress;
--(void)findLocation;
-
+-(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address;
 -(void)updateMap;
 
 @end

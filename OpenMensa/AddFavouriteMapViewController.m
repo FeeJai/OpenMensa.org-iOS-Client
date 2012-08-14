@@ -11,7 +11,7 @@
 
 @implementation AddressAnnotation
 
-@synthesize coordinate;
+@synthesize coordinate, cafeteriaID;
 
 
 -(NSString *)subtitle {
@@ -24,11 +24,12 @@
 }
 
 
--(id)initWithCoordinate:(CLLocationCoordinate2D)c name:(NSString *)fName andAddress:(NSString *)fAddress {
+-(id)initWithCoordinate:(CLLocationCoordinate2D)c name:(NSString *)fName address:(NSString *)fAddress andID:(NSNumber*) fid{
     coordinate = c;
     name = fName;
     address = fAddress;
-    
+    cafeteriaID = fid;
+
     return self;
 }
 
@@ -40,21 +41,10 @@
 @implementation AddFavouriteMapViewController
 
 
-
--(void)showAddress {
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.01;
-    span.longitudeDelta = 0.01;
+-(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address {
     
-    region.span = span;
-    region.center = location;
+    CLLocationCoordinate2D coordinates;
     
-    [mapView setRegion:region animated:YES];
-}
-
-
--(void)findLocation {
     NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv",
                            [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
@@ -70,9 +60,11 @@
     else {
         // Show error
     }
-    location.latitude = latitude;
-    location.longitude = longitude;
     
+    coordinates.latitude = latitude;
+    coordinates.longitude = longitude;
+    
+    return coordinates;
 }
 
 
@@ -82,15 +74,30 @@
     NSDate *lastAPIpdate = [api lastUpdate];
     UIApplication* app = [UIApplication sharedApplication];
 
-    if (lastAPIpdate && ([lastAPIpdate timeIntervalSinceNow] > -60)) {    //Data was received within the last 60 seconds
+    if (lastAPIpdate && ([lastAPIpdate timeIntervalSinceNow] > -60)) {
+        
+        //Data was received within the last 60 seconds
+        NSLog(@"Updating Map");
+        
+        //We got the data, let's get the pins onto the map
 
-        NSLog(@"%lf",[lastAPIpdate timeIntervalSinceNow]);
+        for (NSDictionary *cafeteria in [api cafeterias]) {
+           AddressAnnotation *pin = [[AddressAnnotation alloc]
+                                      initWithCoordinate: [self findCoordinatesForAddress:[cafeteria objectForKey:@"address"]]
+                                      name:[cafeteria objectForKey:@"name"]
+                                      address:[cafeteria objectForKey:@"address"]
+                                        andID: [cafeteria objectForKey:@"id"]];
+            [mapView addAnnotation:pin];
+
+        }
+        
         app.networkActivityIndicatorVisible = NO;
         [self performSelector:@selector(updateMap) withObject:nil afterDelay:180];   //Refresh every three minutes
         
+        
     } else {
         
-        //Make API refresh data and try again in 10 seconds
+        //Make API refresh data and try again in 5 seconds
         app.networkActivityIndicatorVisible = YES; 
         [api getData];
         [self performSelector:@selector(updateMap) withObject:nil afterDelay:5];
@@ -110,8 +117,6 @@
         self.tabBarItem.image = [UIImage imageNamed:@"10-medical"];
     }
     
-    
-    pin = nil;
     api = [DataAPI instance];
     
     mapView = [[MKMapView alloc] init];
@@ -120,15 +125,7 @@
     
     self.view = mapView;
     
-    
-    //Test
-    /*
-    name = @"abc";
-    address = @"Rudolf-Breitscheid-Str. 47, 14482 Potsdam";
-    
-    [self findLocation];
-    [self showAddress];
-    */
+
     
     //start loading data and auto updating
     [self updateMap];
@@ -172,7 +169,7 @@
     span.longitudeDelta = 0.25;
     
     
-    location = [[userLocation location] coordinate];
+    CLLocationCoordinate2D location = [[userLocation location] coordinate];
 
     region.span = span;
     region.center = location;
@@ -182,9 +179,12 @@
 }
 
 -(void)mapView:(MKMapView *)fMapView regionDidChangeAnimated:(BOOL)animated {
-    if (pin != nil) return;
-    pin = [[AddressAnnotation alloc] initWithCoordinate:location name:name andAddress:address];
-    [fMapView addAnnotation:pin];
+    //[self updateMap];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+   NSNumber *cafeteriaID = [(AddressAnnotation*) [view annotation] cafeteriaID];
+    
 }
 
 
@@ -192,11 +192,15 @@
     if (annotation == mapView.userLocation) {
         return nil; // default to blue dot
     }
-    MKPinAnnotationView *annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    annView.pinColor = MKPinAnnotationColorRed;
-    annView.animatesDrop = YES;
-    annView.canShowCallout = YES;
-    return annView;
+    MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    pinView.pinColor = MKPinAnnotationColorRed;
+    pinView.animatesDrop = YES;
+    pinView.canShowCallout = YES;
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    pinView.rightCalloutAccessoryView = rightButton;
+
+    return pinView;
 }
 
 
