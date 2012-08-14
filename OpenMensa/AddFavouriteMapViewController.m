@@ -49,7 +49,7 @@
     
     CLLocationCoordinate2D coordinates;
     
-    NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&key=AIzaSyCLK3BD-Dt5VvAtGZf0lMqsGATQUiAdShE&output=csv",
+    NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv&key=AIzaSyCLK3BD-Dt5VvAtGZf0lMqsGATQUiAdShE",
                            [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     NSArray *listItems = [locationString componentsSeparatedByString:@","];
