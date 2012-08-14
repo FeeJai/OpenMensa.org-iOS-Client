@@ -34,61 +34,11 @@
 
 @end
 
+#pragma mark -
 
 
 @implementation AddFavouriteMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Mensa hinzufügen", @"Add Mensa");
-        self.tabBarItem.image = [UIImage imageNamed:@"10-medical"];
-    }
-        
-    
-    pin = nil;
-    
-    mapView = [[MKMapView alloc] init];
-    mapView.showsUserLocation = YES;
-    mapView.delegate = self;
-    
-    self.view = mapView;
-        
-    
-    //Test
-    
-    name = @"abc";
-    address = @"Rudolf-Breitscheid-Str. 47, 14482 Potsdam";
-    
-    [self findLocation];
-    [self showAddress];
-    
-    return self;
-}
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-}
 
 
 -(void)showAddress {
@@ -122,9 +72,92 @@
     }
     location.latitude = latitude;
     location.longitude = longitude;
+    
+}
+
+
+
+-(void)updateMap {
+    
+    NSDate *lastAPIpdate = [api lastUpdate];
+    UIApplication* app = [UIApplication sharedApplication];
+
+    if (lastAPIpdate && ([lastAPIpdate timeIntervalSinceNow] > -60)) {    //Data was received within the last 60 seconds
+
+        NSLog(@"%lf",[lastAPIpdate timeIntervalSinceNow]);
+        app.networkActivityIndicatorVisible = NO;
+        [self performSelector:@selector(updateMap) withObject:nil afterDelay:180];   //Refresh every three minutes
+        
+    } else {
+        
+        //Make API refresh data and try again in 10 seconds
+        app.networkActivityIndicatorVisible = YES; 
+        [api getData];
+        [self performSelector:@selector(updateMap) withObject:nil afterDelay:5];
+        
+    }
 
 }
 
+#pragma mark - MapViewController
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = NSLocalizedString(@"Mensa hinzufügen", @"Add Mensa");
+        self.tabBarItem.image = [UIImage imageNamed:@"10-medical"];
+    }
+    
+    
+    pin = nil;
+    api = [DataAPI instance];
+    
+    mapView = [[MKMapView alloc] init];
+    mapView.showsUserLocation = YES;
+    mapView.delegate = self;
+    
+    self.view = mapView;
+    
+    
+    //Test
+    /*
+    name = @"abc";
+    address = @"Rudolf-Breitscheid-Str. 47, 14482 Potsdam";
+    
+    [self findLocation];
+    [self showAddress];
+    */
+    
+    //start loading data and auto updating
+    [self updateMap];
+
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
 
 #pragma mark -
 #pragma mark MKMapViewDelegate protocol

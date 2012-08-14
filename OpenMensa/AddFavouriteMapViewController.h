@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import <Foundation/Foundation.h>
-
 #import <MapKit/MapKit.h>
 
+#import "DataAPI.h"
 
 @interface AddressAnnotation : NSObject <MKAnnotation> {
     CLLocationCoordinate2D coordinate;
@@ -23,6 +22,8 @@
 
 
 @interface AddFavouriteMapViewController : UIViewController <MKMapViewDelegate> {
+    DataAPI *api;
+    
     MKMapView *mapView;
     NSString *name;
     NSString *address;
@@ -33,5 +34,7 @@
 
 -(void)showAddress;
 -(void)findLocation;
+
+-(void)updateMap;
 
 @end

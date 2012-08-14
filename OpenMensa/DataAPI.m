@@ -10,6 +10,8 @@
 
 @implementation DataAPI
 
+@synthesize cafeterias, lastUpdate;
+
 // Singleton instance and method
 static DataAPI *pInstance = nil;
 
@@ -19,6 +21,17 @@ static DataAPI *pInstance = nil;
     }
     return pInstance;
 }
+
+
+-(id)init {
+    self = [super init];
+    
+    cafeterias = [[NSMutableArray alloc] init];
+    lastUpdate = nil;
+    
+    return self;
+}
+
 
 #pragma mark API Calls
 
@@ -34,6 +47,7 @@ static DataAPI *pInstance = nil;
     
     //NSLog(@"Response: %@",APIData);
     NSError *error = nil;
+    NSMutableArray *cafeteriasUnsorted = [[NSMutableArray alloc]init];
 
 
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
@@ -44,11 +58,22 @@ static DataAPI *pInstance = nil;
         
         for (NSDictionary* jsonMensa in jsonObject) {
                 //NSDictionary* jsonMensa = (NSDictionary *) object;
-            [jsonMensa objectForKey:@"name"];
-            [jsonMensa objectForKey:@"address"];
+            //[cafeterias insertObject:[jsonMensa objectForKey:@"cafeteria"] atIndex:nil];
+            [cafeteriasUnsorted addObject:[jsonMensa objectForKey:@"cafeteria"]];
+            
         }
 
     } //Else: somethine went wrong
+
+    //All cafeterias added, now sort the array based on the id parameter;
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+
+    //Save the cafeterias for access and set the last update to the current date
+    cafeterias = [cafeteriasUnsorted sortedArrayUsingDescriptors:sortDescriptors];
+    lastUpdate = [NSDate date];
+    
 
     if(error)
         NSLog(@"The following error occured: %@", error);
