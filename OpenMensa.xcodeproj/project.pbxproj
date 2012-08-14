@@ -35,15 +35,17 @@
 		01862E4815D527AE000407B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4715D527AE000407B3 /* main.m */; };
 		01862E4C15D527AE000407B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4B15D527AE000407B3 /* AppDelegate.m */; };
 		01862E4F15D527AE000407B3 /* CafeteriaOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4E15D527AE000407B3 /* CafeteriaOverview.m */; };
-		01862E5115D527AE000407B3 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5015D527AE000407B3 /* first.png */; };
-		01862E5315D527AE000407B3 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5215D527AE000407B3 /* first@2x.png */; };
 		01862E5615D527AE000407B3 /* AddFavouriteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */; };
-		01862E5815D527AE000407B3 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5715D527AE000407B3 /* second.png */; };
-		01862E5A15D527AE000407B3 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5915D527AE000407B3 /* second@2x.png */; };
 		01862E5D15D527AE000407B3 /* CafeteriaOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5B15D527AE000407B3 /* CafeteriaOverview.xib */; };
 		01862E6015D527AE000407B3 /* AddFavouriteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5E15D527AE000407B3 /* AddFavouriteMapViewController.xib */; };
 		01A81B9415DA563E0005CD2E /* ShowMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */; };
 		01A81B9715DA6AB80005CD2E /* FoodOverwievController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A81B9615DA6AB80005CD2E /* FoodOverwievController.m */; };
+		01A81BB215DA73BF0005CD2E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BAC15DA73BF0005CD2E /* Icon-72.png */; };
+		01A81BB315DA73BF0005CD2E /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BAD15DA73BF0005CD2E /* Icon-Small-50.png */; };
+		01A81BB415DA73BF0005CD2E /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BAE15DA73BF0005CD2E /* Icon-Small.png */; };
+		01A81BB515DA73BF0005CD2E /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BAF15DA73BF0005CD2E /* Icon-Small@2x.png */; };
+		01A81BB615DA73BF0005CD2E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BB015DA73BF0005CD2E /* Icon.png */; };
+		01A81BB715DA73BF0005CD2E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A81BB115DA73BF0005CD2E /* Icon@2x.png */; };
 		01D606D215D8469B00E3DC30 /* FavouriteCafeteriaStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */; };
 /* End PBXBuildFile section */
 
@@ -97,18 +99,20 @@
 		01862E4B15D527AE000407B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		01862E4D15D527AE000407B3 /* CafeteriaOverview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CafeteriaOverview.h; sourceTree = "<group>"; };
 		01862E4E15D527AE000407B3 /* CafeteriaOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CafeteriaOverview.m; sourceTree = "<group>"; };
-		01862E5015D527AE000407B3 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		01862E5215D527AE000407B3 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		01862E5415D527AE000407B3 /* AddFavouriteMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddFavouriteMapViewController.h; sourceTree = "<group>"; };
 		01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddFavouriteMapViewController.m; sourceTree = "<group>"; };
-		01862E5715D527AE000407B3 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		01862E5915D527AE000407B3 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		01862E5C15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CafeteriaOverview.xib; sourceTree = "<group>"; };
 		01862E5F15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AddFavouriteMapViewController.xib; sourceTree = "<group>"; };
 		01A81B9215DA563E0005CD2E /* ShowMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMenuNavigationController.h; sourceTree = "<group>"; };
 		01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMenuNavigationController.m; sourceTree = "<group>"; };
 		01A81B9515DA6AB80005CD2E /* FoodOverwievController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOverwievController.h; sourceTree = "<group>"; };
 		01A81B9615DA6AB80005CD2E /* FoodOverwievController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOverwievController.m; sourceTree = "<group>"; };
+		01A81BAC15DA73BF0005CD2E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		01A81BAD15DA73BF0005CD2E /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		01A81BAE15DA73BF0005CD2E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		01A81BAF15DA73BF0005CD2E /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		01A81BB015DA73BF0005CD2E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		01A81BB115DA73BF0005CD2E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		01D606D015D8469B00E3DC30 /* FavouriteCafeteriaStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCafeteriaStorage.h; sourceTree = "<group>"; };
 		01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCafeteriaStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,14 +262,8 @@
 		01862E7715D528E2000407B3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				011B65A415D54B6200BCD87B /* forkAndKnife.png */,
-				01862E5715D527AE000407B3 /* second.png */,
-				01862E5915D527AE000407B3 /* second@2x.png */,
-				01862E5015D527AE000407B3 /* first.png */,
-				01862E5215D527AE000407B3 /* first@2x.png */,
-				011B657415D52DD600BCD87B /* 07-map-marker.png */,
-				011B657215D52DD000BCD87B /* 10-medical.png */,
-				011B657615D52DE400BCD87B /* 111-user.png */,
+				01A81B9B15DA71E60005CD2E /* Application */,
+				01A81B9A15DA71DF0005CD2E /* tabBar */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -299,6 +297,30 @@
 				011B656D15D52BDC00BCD87B /* SocialViewController.m */,
 			);
 			name = "Login stuff";
+			sourceTree = "<group>";
+		};
+		01A81B9A15DA71DF0005CD2E /* tabBar */ = {
+			isa = PBXGroup;
+			children = (
+				011B65A415D54B6200BCD87B /* forkAndKnife.png */,
+				011B657415D52DD600BCD87B /* 07-map-marker.png */,
+				011B657215D52DD000BCD87B /* 10-medical.png */,
+				011B657615D52DE400BCD87B /* 111-user.png */,
+			);
+			name = tabBar;
+			sourceTree = "<group>";
+		};
+		01A81B9B15DA71E60005CD2E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				01A81BAC15DA73BF0005CD2E /* Icon-72.png */,
+				01A81BAD15DA73BF0005CD2E /* Icon-Small-50.png */,
+				01A81BAE15DA73BF0005CD2E /* Icon-Small.png */,
+				01A81BAF15DA73BF0005CD2E /* Icon-Small@2x.png */,
+				01A81BB015DA73BF0005CD2E /* Icon.png */,
+				01A81BB115DA73BF0005CD2E /* Icon@2x.png */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,10 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				01862E4615D527AE000407B3 /* InfoPlist.strings in Resources */,
-				01862E5115D527AE000407B3 /* first.png in Resources */,
-				01862E5315D527AE000407B3 /* first@2x.png in Resources */,
-				01862E5815D527AE000407B3 /* second.png in Resources */,
-				01862E5A15D527AE000407B3 /* second@2x.png in Resources */,
 				01862E5D15D527AE000407B3 /* CafeteriaOverview.xib in Resources */,
 				01862E6015D527AE000407B3 /* AddFavouriteMapViewController.xib in Resources */,
 				011B657015D52BDC00BCD87B /* SocialViewController.xib in Resources */,
@@ -364,6 +382,12 @@
 				011B657515D52DD600BCD87B /* 07-map-marker.png in Resources */,
 				011B657715D52DE400BCD87B /* 111-user.png in Resources */,
 				011B65A515D54B6200BCD87B /* forkAndKnife.png in Resources */,
+				01A81BB215DA73BF0005CD2E /* Icon-72.png in Resources */,
+				01A81BB315DA73BF0005CD2E /* Icon-Small-50.png in Resources */,
+				01A81BB415DA73BF0005CD2E /* Icon-Small.png in Resources */,
+				01A81BB515DA73BF0005CD2E /* Icon-Small@2x.png in Resources */,
+				01A81BB615DA73BF0005CD2E /* Icon.png in Resources */,
+				01A81BB715DA73BF0005CD2E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
