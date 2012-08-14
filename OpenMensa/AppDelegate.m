@@ -6,11 +6,14 @@
 //  Copyright (c) 2012 openmensa.org. All rights reserved.
 //
 
+// Icons are from: http://glyphish.com/
+
+
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
-
-#import "SecondViewController.h"
+#import "MainScreenViewController.h"
+#import "AddFavouriteMapViewController.h"
+#import "SocialViewController.h"
 
 @implementation AppDelegate
 
@@ -18,10 +21,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    UIViewController *viewController1 = [[MainScreenViewController alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
+    UIViewController *viewController2 = [[AddFavouriteMapViewController alloc] initWithNibName:@"AddFavouriteMapViewController" bundle:nil];
+    UIViewController *viewController3 = [[SocialViewController alloc] initWithNibName:@"SocialViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
