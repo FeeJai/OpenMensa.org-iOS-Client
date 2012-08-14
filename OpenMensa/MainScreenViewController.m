@@ -69,8 +69,15 @@
     cell = [self reuseOrCreateCellForTableView:tableView withIdentifier:@"cafeteriasCell" withStyle:UITableViewCellStyleSubtitle withIndicator:YES];
 
     
-    NSDictionary* cafeteria = [[api cafeterias] objectAtIndex: (indexPath.row)];
+    NSDictionary* cafeteria;// = [[api cafeterias] objectAtIndex: (indexPath.row)];
             
+    for (NSDictionary *thisCafeteria in [api cafeterias]) {
+        
+        if([[[favourites favouriteCafeterias] objectAtIndex:(indexPath.row)] isEqualToNumber:[thisCafeteria valueForKey:@"id"]]) {
+            cafeteria = thisCafeteria;
+        }
+    }
+    
     cell.textLabel.text = [cafeteria objectForKey:@"name"];
     cell.detailTextLabel.text = [cafeteria objectForKey:@"address"];
 
