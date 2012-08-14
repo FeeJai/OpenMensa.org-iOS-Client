@@ -187,23 +187,40 @@
 #pragma mark - MKMapViewDelegate protocol
 
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSNumber *cafeteriaID = [(AddressAnnotation*) [view annotation] cafeteriaID];
-    NSLog(@"%@",cafeteriaID);
+- (void)mapView:(MKMapView *)pMapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+
+    MKPinAnnotationView* pinView = (MKPinAnnotationView*) view;
+    AddressAnnotation* annotation = (AddressAnnotation*) [view annotation];
+    
+    pinView.pinColor = MKPinAnnotationColorPurple;
+    pinView.rightCalloutAccessoryView = nil;
+    [pMapView deselectAnnotation:annotation animated:YES];
+    
+    [favourites addFavouriteCafeteria:[annotation cafeteriaID]];
 }
 
 
 -(MKAnnotationView *) mapView:(MKMapView *)fMapView viewForAnnotation:(id <MKAnnotation>) annotation{
+ 
     if (annotation == mapView.userLocation) {
         return nil; // default to blue dot
     }
+    
+    AddressAnnotation* addressAnnotation = (AddressAnnotation*) annotation;
+
+    UIButton *rightCalloutAccessory = nil;
     MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    pinView.pinColor = MKPinAnnotationColorRed;
+    
+    if ([favourites cafeteriaIsFavourite:[addressAnnotation cafeteriaID]]) {
+        pinView.pinColor = MKPinAnnotationColorPurple;
+    } else {
+        pinView.pinColor = MKPinAnnotationColorRed;
+        rightCalloutAccessory = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    }
+    
     pinView.animatesDrop = YES;
     pinView.canShowCallout = YES;
-    
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    pinView.rightCalloutAccessoryView = rightButton;
+    pinView.rightCalloutAccessoryView = rightCalloutAccessory;
     
     return pinView;
 }

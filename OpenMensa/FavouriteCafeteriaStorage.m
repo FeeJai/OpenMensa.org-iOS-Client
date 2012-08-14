@@ -57,9 +57,14 @@ static FavouriteCafeteriaStorage *pInstance = nil;
 
 -(void) addFavouriteCafeteria: (NSNumber*) cafeteriaId {
     
-    [[NSUserDefaults standardUserDefaults]
-     setObject:[NSArray arrayWithArray:favouriteCafeterias] forKey:@"favouriteCafeterias"];
+    if(![self cafeteriaIsFavourite:cafeteriaId]) {
+        
+        [favouriteCafeterias addObject:cafeteriaId];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:favouriteCafeterias] forKey:@"favouriteCafeterias"];
 
+        NSLog(@"Added cafeteria %@ to local favourites", cafeteriaId);
+        
+    }
 }
 
 -(NSArray *) favouriteCafeterias {
