@@ -25,6 +25,10 @@
 
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)c name:(NSString *)fName address:(NSString *)fAddress andID:(NSNumber*) fid{
+    
+    if (c.longitude == 0 && c.latitude == 0)
+        return nil;
+    
     coordinate = c;
     name = fName;
     address = fAddress;
@@ -40,12 +44,23 @@
 
 @implementation AddFavouriteMapViewController
 
+- (void)threadMain:(id)data {
+    
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    [runloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+    
+    while (1) { // 'isAlive' is a variable that is used to control the thread existence...
+        [runloop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    
+}
+
 
 -(CLLocationCoordinate2D)findCoordinatesForAddress:(NSString*) address {
     
     CLLocationCoordinate2D coordinates;
     
-    NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv",
+    NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&key=AIzaSyCLK3BD-Dt5VvAtGZf0lMqsGATQUiAdShE&output=csv",
                            [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     NSArray *listItems = [locationString componentsSeparatedByString:@","];
@@ -58,7 +73,7 @@
         longitude = [[listItems objectAtIndex:3] doubleValue];
     }
     else {
-        // Show error
+        //Error handling
     }
     
     coordinates.latitude = latitude;
@@ -69,12 +84,20 @@
 
 
 -(void)addPinForCafeteria: (NSDictionary*) cafeteria {
+       
     AddressAnnotation *pin = [[AddressAnnotation alloc]
                               initWithCoordinate: [self findCoordinatesForAddress:[cafeteria objectForKey:@"address"]]
                               name:[cafeteria objectForKey:@"name"]
                               address:[cafeteria objectForKey:@"address"]
                               andID: [cafeteria objectForKey:@"id"]];
-    [mapView addAnnotation:pin];
+    if (pin) {
+        //[mapView addAnnotation:pin];
+        [mapView performSelectorOnMainThread:@selector(addAnnotation:) withObject:pin waitUntilDone:false];
+    } else {
+        NSLog(@"Could not add cafeteria \"%@\" - retry in one second", [cafeteria objectForKey:@"name"]);
+        [NSThread sleepForTimeInterval:1.1];
+        [self performSelector:@selector(addPinForCafeteria:) withObject:cafeteria];
+    }
 }
 
 -(void)updateMap {
@@ -89,13 +112,21 @@
         
         //We got the data, let's get the pins onto the map
 
+        
+        //NSThread *pinsThread = [[NSThread alloc] init];
+        NSThread *pinsThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain:) object:nil];
+
         for (NSDictionary *cafeteria in [api cafeterias]) {
             
-            [self performSelectorInBackground:@selector(addPinForCafeteria:) withObject:cafeteria]; //multithreaded - no more freezing
+            //[self performSelectorInBackground:@selector(addPinForCafeteria:) withObject:cafeteria]; //multithreaded - no more freezing
+            //+[NSThread sleepForTimeInterval:]
+            [self performSelector:@selector(addPinForCafeteria:) onThread:pinsThread withObject:cafeteria waitUntilDone:false];
         }
         
+        [pinsThread start]; // go!
+
         app.networkActivityIndicatorVisible = NO;
-        [self performSelector:@selector(updateMap) withObject:nil afterDelay:180];   //Refresh every three minutes
+        //[self performSelector:@selector(updateMap) withObject:nil afterDelay:180];   //Refresh every three minutes
         
         
     } else {
@@ -128,8 +159,6 @@
     mapView.delegate = self;
     
     self.view = mapView;
-    
-
     
     //start loading data and auto updating
     [self updateMap];
@@ -164,12 +193,22 @@
 
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [theMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    //[theMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    
+    static NSDate *lastMapUpdate;
+    
+    if(!lastMapUpdate)
+        lastMapUpdate = [NSDate date];
+    
+    //Nur innerhalb der ersten 15 Sekunden nach den ersten Positionsupdate Karte erneut ausrichten
+    
+    if ([lastMapUpdate timeIntervalSinceNow] > -15) {
+
     
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.25;
-    span.longitudeDelta = 0.25;
+    span.latitudeDelta = 0.3;
+    span.longitudeDelta = 0.3;
     
     
     CLLocationCoordinate2D location = [[userLocation location] coordinate];
@@ -178,6 +217,8 @@
     region.center = location;
     
     [mapView setRegion:region animated:YES];
+     
+    }
 
 }
 
@@ -187,7 +228,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
    NSNumber *cafeteriaID = [(AddressAnnotation*) [view annotation] cafeteriaID];
-    
+    NSLog(@"%@",cafeteriaID);
 }
 
 
