@@ -115,7 +115,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSLog(@"selected: %@", indexPath);
+    
+    FoodOverwievController *foodOverview = [[FoodOverwievController alloc] initWithCafereiaId:[NSNumber numberWithInt:indexPath.row]];
+    
+    [self.navigationController pushViewController:foodOverview animated:YES];
+    
     
     /*
     if (indexPath.section == 1) {
@@ -146,7 +150,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     if(self) {
-        self.title = @"OpenMensa.org";
+        self.title = NSLocalizedString(@"Mensa wählen", @"select cafeteria");
     }
     
     favourites = [FavouriteCafeteriaStorage instance];

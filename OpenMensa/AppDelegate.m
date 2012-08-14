@@ -30,6 +30,9 @@
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
+    //self.tabBarController.tabBar.
+    [[self.tabBarController.viewControllers objectAtIndex:0] setTitle:NSLocalizedString(@"Speiseplan anzeigen", @"Menu")];
+
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];    
 

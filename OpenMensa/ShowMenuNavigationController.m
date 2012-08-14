@@ -41,7 +41,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Menü anzeigen", @"Menu");
+        //self.title = NSLocalizedString(@"Speiseplan anzeigen", @"Menu");
         self.tabBarItem.image = [UIImage imageNamed:@"forkAndKnife"];
     }
     

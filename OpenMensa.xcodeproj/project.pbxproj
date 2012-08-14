@@ -43,6 +43,7 @@
 		01862E5D15D527AE000407B3 /* CafeteriaOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5B15D527AE000407B3 /* CafeteriaOverview.xib */; };
 		01862E6015D527AE000407B3 /* AddFavouriteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5E15D527AE000407B3 /* AddFavouriteMapViewController.xib */; };
 		01A81B9415DA563E0005CD2E /* ShowMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */; };
+		01A81B9715DA6AB80005CD2E /* FoodOverwievController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A81B9615DA6AB80005CD2E /* FoodOverwievController.m */; };
 		01D606D215D8469B00E3DC30 /* FavouriteCafeteriaStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		01862E5F15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AddFavouriteMapViewController.xib; sourceTree = "<group>"; };
 		01A81B9215DA563E0005CD2E /* ShowMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMenuNavigationController.h; sourceTree = "<group>"; };
 		01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMenuNavigationController.m; sourceTree = "<group>"; };
+		01A81B9515DA6AB80005CD2E /* FoodOverwievController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOverwievController.h; sourceTree = "<group>"; };
+		01A81B9615DA6AB80005CD2E /* FoodOverwievController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOverwievController.m; sourceTree = "<group>"; };
 		01D606D015D8469B00E3DC30 /* FavouriteCafeteriaStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCafeteriaStorage.h; sourceTree = "<group>"; };
 		01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCafeteriaStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,10 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				01A81B9015DA55D00005CD2E /* MainScreen */,
-				01862E5415D527AE000407B3 /* AddFavouriteMapViewController.h */,
-				01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */,
-				011B656C15D52BDC00BCD87B /* SocialViewController.h */,
-				011B656D15D52BDC00BCD87B /* SocialViewController.m */,
+				01A81B9815DA6AC40005CD2E /* Map */,
+				01A81B9915DA6ACD0005CD2E /* Login stuff */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -276,8 +277,28 @@
 				01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */,
 				01862E4D15D527AE000407B3 /* CafeteriaOverview.h */,
 				01862E4E15D527AE000407B3 /* CafeteriaOverview.m */,
+				01A81B9515DA6AB80005CD2E /* FoodOverwievController.h */,
+				01A81B9615DA6AB80005CD2E /* FoodOverwievController.m */,
 			);
 			name = MainScreen;
+			sourceTree = "<group>";
+		};
+		01A81B9815DA6AC40005CD2E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				01862E5415D527AE000407B3 /* AddFavouriteMapViewController.h */,
+				01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		01A81B9915DA6ACD0005CD2E /* Login stuff */ = {
+			isa = PBXGroup;
+			children = (
+				011B656C15D52BDC00BCD87B /* SocialViewController.h */,
+				011B656D15D52BDC00BCD87B /* SocialViewController.m */,
+			);
+			name = "Login stuff";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +395,7 @@
 				011B65A315D53EC900BCD87B /* NetworkController.m in Sources */,
 				01D606D215D8469B00E3DC30 /* FavouriteCafeteriaStorage.m in Sources */,
 				01A81B9415DA563E0005CD2E /* ShowMenuNavigationController.m in Sources */,
+				01A81B9715DA6AB80005CD2E /* FoodOverwievController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
