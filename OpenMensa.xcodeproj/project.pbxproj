@@ -90,18 +90,9 @@
 		01862E4115D527AE000407B3 /* OpenMensa */ = {
 			isa = PBXGroup;
 			children = (
-				01862E4A15D527AE000407B3 /* AppDelegate.h */,
-				01862E4B15D527AE000407B3 /* AppDelegate.m */,
-				01862E4D15D527AE000407B3 /* FirstViewController.h */,
-				01862E4E15D527AE000407B3 /* FirstViewController.m */,
-				01862E5015D527AE000407B3 /* first.png */,
-				01862E5215D527AE000407B3 /* first@2x.png */,
-				01862E5415D527AE000407B3 /* SecondViewController.h */,
-				01862E5515D527AE000407B3 /* SecondViewController.m */,
-				01862E5715D527AE000407B3 /* second.png */,
-				01862E5915D527AE000407B3 /* second@2x.png */,
-				01862E5B15D527AE000407B3 /* FirstViewController.xib */,
-				01862E5E15D527AE000407B3 /* SecondViewController.xib */,
+				01862E6A15D527E8000407B3 /* UI */,
+				01862E6B15D527EF000407B3 /* Data */,
+				01862E6C15D527F6000407B3 /* Other Sources */,
 				01862E4215D527AE000407B3 /* Supporting Files */,
 			);
 			path = OpenMensa;
@@ -110,12 +101,61 @@
 		01862E4215D527AE000407B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				01862E7715D528E2000407B3 /* icons */,
+				01862E7615D528BA000407B3 /* xibs */,
 				01862E4315D527AE000407B3 /* OpenMensa-Info.plist */,
 				01862E4415D527AE000407B3 /* InfoPlist.strings */,
-				01862E4715D527AE000407B3 /* main.m */,
 				01862E4915D527AE000407B3 /* OpenMensa-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01862E6A15D527E8000407B3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01862E5415D527AE000407B3 /* SecondViewController.h */,
+				01862E5515D527AE000407B3 /* SecondViewController.m */,
+				01862E4D15D527AE000407B3 /* FirstViewController.h */,
+				01862E4E15D527AE000407B3 /* FirstViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		01862E6B15D527EF000407B3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		01862E6C15D527F6000407B3 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				01862E4A15D527AE000407B3 /* AppDelegate.h */,
+				01862E4B15D527AE000407B3 /* AppDelegate.m */,
+				01862E4715D527AE000407B3 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		01862E7615D528BA000407B3 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				01862E5B15D527AE000407B3 /* FirstViewController.xib */,
+				01862E5E15D527AE000407B3 /* SecondViewController.xib */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		01862E7715D528E2000407B3 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				01862E5715D527AE000407B3 /* second.png */,
+				01862E5915D527AE000407B3 /* second@2x.png */,
+				01862E5015D527AE000407B3 /* first.png */,
+				01862E5215D527AE000407B3 /* first@2x.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +353,7 @@
 				01862E6515D527AE000407B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
