@@ -9,7 +9,6 @@
 //Based on Apple's Documentation: https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/URLLoadingSystem/Tasks/UsingNSURLConnection.html
 
 #import "NetworkController.h"
-#define URL @"http://openmensa.org/api/v1/cafeterias.json"
 
 @implementation NetworkController
 
@@ -24,8 +23,10 @@
     return self;
 }
 
--(void) getDataFor: (id) delegate {
+-(void) getDataFor: (id) newDelegate {
     theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    delegate = newDelegate;
+    
     if (theConnection) {
         self.receivedData = [NSMutableData data];
     } else {
@@ -69,7 +70,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *APIData = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    
     [delegate APIDataReceived:APIData];
 }
 

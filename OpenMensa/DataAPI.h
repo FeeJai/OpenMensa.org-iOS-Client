@@ -13,6 +13,8 @@
 #import "NetworkController.h"
 
 
+//*** THIS IS THE IMPLEMENTATION FOR THE V1 API - NEEDS TO BE UPDATED ONCE FUNCTIONALITY IS AVAILABLE
+
 // DataAPI is a Singleton!
 @interface DataAPI : NSObject <NetworkDataUpdateProtocol> {
     

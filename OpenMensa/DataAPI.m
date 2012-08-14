@@ -20,22 +20,39 @@ static DataAPI *pInstance = nil;
     return pInstance;
 }
 
+#pragma mark API Calls
+
 - (NSDictionary *) getData {
+    NetworkController *network = [[NetworkController alloc] init];
+    [network getDataFor:self];
+    
     return nil;
 }
 
+
 - (void) APIDataReceived:(NSString *)APIData {
     
-    SBJsonParser *parser = [SBJsonParser alloc];
+    //NSLog(@"Response: %@",APIData);
+    NSError *error = nil;
 
-    NSArray *object = [parser objectWithString:APIData error:nil];
+
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+
+    id jsonObject = [jsonParser objectWithString:APIData error:&error];
     
-    for (NSDictionary *status in object)
-    {
-        // You can retrieve individual values using objectForKey on the status NSDictionary
-        // This will print the tweet and username to the console
-        NSLog(@"%@ - %@", [status objectForKey:@"text"], [[status objectForKey:@"user"] objectForKey:@"screen_name"]);
-    }
+    if ([jsonObject isKindOfClass:[NSArray class]]) {
+        
+        for (NSDictionary* jsonMensa in jsonObject) {
+                //NSDictionary* jsonMensa = (NSDictionary *) object;
+            [jsonMensa objectForKey:@"name"];
+            [jsonMensa objectForKey:@"address"];
+        }
+
+    } //Else: somethine went wrong
+
+    if(error)
+        NSLog(@"The following error occured: %@", error);
+
 }
 
 @end

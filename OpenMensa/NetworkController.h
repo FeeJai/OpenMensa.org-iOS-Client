@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define URL @"http://openmensa.org/api/v1/cafeterias.json"
+
+
 @protocol NetworkDataUpdateProtocol;
 
 

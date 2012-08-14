@@ -28,7 +28,13 @@
     self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    NSLog(@"Hello");
+    
+    [[DataAPI instance] getData];
+
     return YES;
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

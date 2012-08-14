@@ -8,6 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFavouriteMapViewController : UIViewController
+#import <Foundation/Foundation.h>
+
+#import <MapKit/MapKit.h>
+
+
+@interface AddressAnnotation : NSObject <MKAnnotation> {
+    CLLocationCoordinate2D coordinate;
+    NSString *name;
+    NSString *address;
+}
+
+@end
+
+
+@interface AddFavouriteMapViewController : UIViewController <MKMapViewDelegate> {
+    MKMapView *mapView;
+    NSString *name;
+    NSString *address;
+    AddressAnnotation *pin;
+    CLLocationCoordinate2D location;
+}
+
+
+-(void)showAddress;
+-(void)findLocation;
 
 @end
