@@ -11,7 +11,7 @@
 
 #import "AppDelegate.h"
 
-#import "MainScreenViewController.h"
+#import "ShowMenuNavigationController.h"
 #import "AddFavouriteMapViewController.h"
 #import "SocialViewController.h"
 
@@ -21,7 +21,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[MainScreenViewController alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
+    
+    //UIViewController *viewController1 = [[CafeteriaOverview alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
+    UINavigationController *viewController1 = [[ShowMenuNavigationController alloc] initWithNibName:nil bundle:nil];
+
     UIViewController *viewController2 = [[AddFavouriteMapViewController alloc] initWithNibName:@"AddFavouriteMapViewController" bundle:nil];
     UIViewController *viewController3 = [[SocialViewController alloc] initWithNibName:@"SocialViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
@@ -65,8 +68,8 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
         
-    if([viewController isKindOfClass:[MainScreenViewController class]]) {
-        [(MainScreenViewController*) viewController APIDataHasBeenUpdated];
+    if([viewController isKindOfClass:[CafeteriaOverview class]]) {
+        [(CafeteriaOverview*) viewController APIDataHasBeenUpdated];
     }
     
 }

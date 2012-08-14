@@ -14,12 +14,12 @@
 #import "DataAPI.h"
 
 
-@interface MainScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, DataAPIDelegate> {
+@interface CafeteriaOverview : UITableViewController < UITableViewDelegate, UITableViewDataSource, DataAPIDelegate > {
     IBOutlet UITableView *table;
-    IBOutlet UIActivityIndicatorView *activityIndicator;
-    
+
     DataAPI *api;
     FavouriteCafeteriaStorage *favourites;
 }
+
 
 @end

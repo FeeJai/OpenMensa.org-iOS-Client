@@ -34,14 +34,15 @@
 		01862E4615D527AE000407B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01862E4415D527AE000407B3 /* InfoPlist.strings */; };
 		01862E4815D527AE000407B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4715D527AE000407B3 /* main.m */; };
 		01862E4C15D527AE000407B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4B15D527AE000407B3 /* AppDelegate.m */; };
-		01862E4F15D527AE000407B3 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4E15D527AE000407B3 /* MainScreenViewController.m */; };
+		01862E4F15D527AE000407B3 /* CafeteriaOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E4E15D527AE000407B3 /* CafeteriaOverview.m */; };
 		01862E5115D527AE000407B3 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5015D527AE000407B3 /* first.png */; };
 		01862E5315D527AE000407B3 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5215D527AE000407B3 /* first@2x.png */; };
 		01862E5615D527AE000407B3 /* AddFavouriteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */; };
 		01862E5815D527AE000407B3 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5715D527AE000407B3 /* second.png */; };
 		01862E5A15D527AE000407B3 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5915D527AE000407B3 /* second@2x.png */; };
-		01862E5D15D527AE000407B3 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5B15D527AE000407B3 /* MainScreenViewController.xib */; };
+		01862E5D15D527AE000407B3 /* CafeteriaOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5B15D527AE000407B3 /* CafeteriaOverview.xib */; };
 		01862E6015D527AE000407B3 /* AddFavouriteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01862E5E15D527AE000407B3 /* AddFavouriteMapViewController.xib */; };
+		01A81B9415DA563E0005CD2E /* ShowMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */; };
 		01D606D215D8469B00E3DC30 /* FavouriteCafeteriaStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */; };
 /* End PBXBuildFile section */
 
@@ -93,16 +94,18 @@
 		01862E4915D527AE000407B3 /* OpenMensa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenMensa-Prefix.pch"; sourceTree = "<group>"; };
 		01862E4A15D527AE000407B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		01862E4B15D527AE000407B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		01862E4D15D527AE000407B3 /* MainScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
-		01862E4E15D527AE000407B3 /* MainScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		01862E4D15D527AE000407B3 /* CafeteriaOverview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CafeteriaOverview.h; sourceTree = "<group>"; };
+		01862E4E15D527AE000407B3 /* CafeteriaOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CafeteriaOverview.m; sourceTree = "<group>"; };
 		01862E5015D527AE000407B3 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		01862E5215D527AE000407B3 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		01862E5415D527AE000407B3 /* AddFavouriteMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddFavouriteMapViewController.h; sourceTree = "<group>"; };
 		01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddFavouriteMapViewController.m; sourceTree = "<group>"; };
 		01862E5715D527AE000407B3 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		01862E5915D527AE000407B3 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		01862E5C15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainScreenViewController.xib; sourceTree = "<group>"; };
+		01862E5C15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CafeteriaOverview.xib; sourceTree = "<group>"; };
 		01862E5F15D527AE000407B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AddFavouriteMapViewController.xib; sourceTree = "<group>"; };
+		01A81B9215DA563E0005CD2E /* ShowMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMenuNavigationController.h; sourceTree = "<group>"; };
+		01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMenuNavigationController.m; sourceTree = "<group>"; };
 		01D606D015D8469B00E3DC30 /* FavouriteCafeteriaStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCafeteriaStorage.h; sourceTree = "<group>"; };
 		01D606D115D8469B00E3DC30 /* FavouriteCafeteriaStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCafeteriaStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,8 +212,7 @@
 		01862E6A15D527E8000407B3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				01862E4D15D527AE000407B3 /* MainScreenViewController.h */,
-				01862E4E15D527AE000407B3 /* MainScreenViewController.m */,
+				01A81B9015DA55D00005CD2E /* MainScreen */,
 				01862E5415D527AE000407B3 /* AddFavouriteMapViewController.h */,
 				01862E5515D527AE000407B3 /* AddFavouriteMapViewController.m */,
 				011B656C15D52BDC00BCD87B /* SocialViewController.h */,
@@ -245,7 +247,7 @@
 		01862E7615D528BA000407B3 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				01862E5B15D527AE000407B3 /* MainScreenViewController.xib */,
+				01862E5B15D527AE000407B3 /* CafeteriaOverview.xib */,
 				01862E5E15D527AE000407B3 /* AddFavouriteMapViewController.xib */,
 				011B656E15D52BDC00BCD87B /* SocialViewController.xib */,
 			);
@@ -265,6 +267,17 @@
 				011B657615D52DE400BCD87B /* 111-user.png */,
 			);
 			name = icons;
+			sourceTree = "<group>";
+		};
+		01A81B9015DA55D00005CD2E /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				01A81B9215DA563E0005CD2E /* ShowMenuNavigationController.h */,
+				01A81B9315DA563E0005CD2E /* ShowMenuNavigationController.m */,
+				01862E4D15D527AE000407B3 /* CafeteriaOverview.h */,
+				01862E4E15D527AE000407B3 /* CafeteriaOverview.m */,
+			);
+			name = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +336,7 @@
 				01862E5315D527AE000407B3 /* first@2x.png in Resources */,
 				01862E5815D527AE000407B3 /* second.png in Resources */,
 				01862E5A15D527AE000407B3 /* second@2x.png in Resources */,
-				01862E5D15D527AE000407B3 /* MainScreenViewController.xib in Resources */,
+				01862E5D15D527AE000407B3 /* CafeteriaOverview.xib in Resources */,
 				01862E6015D527AE000407B3 /* AddFavouriteMapViewController.xib in Resources */,
 				011B657015D52BDC00BCD87B /* SocialViewController.xib in Resources */,
 				011B657315D52DD000BCD87B /* 10-medical.png in Resources */,
@@ -342,7 +355,7 @@
 			files = (
 				01862E4815D527AE000407B3 /* main.m in Sources */,
 				01862E4C15D527AE000407B3 /* AppDelegate.m in Sources */,
-				01862E4F15D527AE000407B3 /* MainScreenViewController.m in Sources */,
+				01862E4F15D527AE000407B3 /* CafeteriaOverview.m in Sources */,
 				01862E5615D527AE000407B3 /* AddFavouriteMapViewController.m in Sources */,
 				011B656F15D52BDC00BCD87B /* SocialViewController.m in Sources */,
 				011B659215D53AFB00BCD87B /* NSObject+SBJson.m in Sources */,
@@ -360,6 +373,7 @@
 				011B65A015D53D9800BCD87B /* DataAPI.m in Sources */,
 				011B65A315D53EC900BCD87B /* NetworkController.m in Sources */,
 				01D606D215D8469B00E3DC30 /* FavouriteCafeteriaStorage.m in Sources */,
+				01A81B9415DA563E0005CD2E /* ShowMenuNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +388,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		01862E5B15D527AE000407B3 /* MainScreenViewController.xib */ = {
+		01862E5B15D527AE000407B3 /* CafeteriaOverview.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				01862E5C15D527AE000407B3 /* en */,
 			);
-			name = MainScreenViewController.xib;
+			name = CafeteriaOverview.xib;
 			sourceTree = "<group>";
 		};
 		01862E5E15D527AE000407B3 /* AddFavouriteMapViewController.xib */ = {

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 openmensa.org. All rights reserved.
 //
 
-#import "MainScreenViewController.h"
+#import "CafeteriaOverview.h"
 
-@interface MainScreenViewController ()
+@interface CafeteriaOverview ()
 
 @end
 
-@implementation MainScreenViewController
+@implementation CafeteriaOverview
 
 
 #pragma mark - DataAPIDelegate
@@ -20,12 +20,33 @@
 -(void)APIDataHasBeenUpdated {
 
     [table reloadData];
-    [activityIndicator stopAnimating];
 
 }
 
-#pragma mark - UITableViewDataSource protocol
+#pragma mark - edit Table Contents manually
 
+
+-(void)setEditing:(BOOL) editing animated:(BOOL) animated
+
+{
+    [super setEditing:editing animated:animated];
+    [table setEditing:editing animated:animated];
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return true;
+}
+
+- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+    [table beginUpdates];
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPaths]
+                     withRowAnimation:UITableViewRowAnimationFade];
+    [table endUpdates];
+}
+
+
+#pragma mark - UITableViewDataSource protocol
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 1) return NSLocalizedString(@"Deine Mensa Favoriten:", @"favourite cafeterias");;
@@ -43,9 +64,9 @@
     if (![api lastUpdate]) {
         NSLog(@"Waiting for Data on API before table with food can be viewed");
         return 0;
-    } else {
-        NSLog(@"Showing cafeterias on table");
     }
+    
+    NSLog(@"udpating table");
     
     if (section == 0) return [[favourites favouriteCafeterias] count];
     return 0;
@@ -69,7 +90,7 @@
     cell = [self reuseOrCreateCellForTableView:tableView withIdentifier:@"cafeteriasCell" withStyle:UITableViewCellStyleSubtitle withIndicator:YES];
 
     
-    NSDictionary* cafeteria;// = [[api cafeterias] objectAtIndex: (indexPath.row)];
+    NSDictionary* cafeteria; // = [[api cafeterias] objectAtIndex: (indexPath.row)];
             
     for (NSDictionary *thisCafeteria in [api cafeterias]) {
         
@@ -92,6 +113,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"selected: %@", indexPath);
+    
     /*
     if (indexPath.section == 1) {
         if (indexPath.row < [self numberOfRowsInRecents] - 1) {
@@ -114,31 +138,19 @@
     } */
 }
 
-
--(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*if (indexPath.section == 0)
-        return nil;
-    else */
-        return indexPath;
-}
-
-
-
 #pragma mark - UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Menü anzeigen", @"Menu");
-        self.tabBarItem.image = [UIImage imageNamed:@"forkAndKnife"];
+
+    if(self) {
+        self.title = @"OpenMensa.org";
     }
     
     favourites = [FavouriteCafeteriaStorage instance];
     api = [DataAPI instance];
     [api setDelegate:self];
-
-    [activityIndicator startAnimating];
     
     return self;
 }
@@ -147,6 +159,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
