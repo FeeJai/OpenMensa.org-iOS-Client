@@ -24,6 +24,8 @@
 		011B659B15D53AFB00BCD87B /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B658D15D53AFB00BCD87B /* SBJsonTokeniser.m */; };
 		011B659C15D53AFB00BCD87B /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B658F15D53AFB00BCD87B /* SBJsonUTF8Stream.m */; };
 		011B659D15D53AFB00BCD87B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B659115D53AFB00BCD87B /* SBJsonWriter.m */; };
+		011B65A015D53D9800BCD87B /* DataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B659F15D53D9800BCD87B /* DataAPI.m */; };
+		011B65A315D53EC900BCD87B /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011B65A215D53EC900BCD87B /* NetworkController.m */; };
 		01862E3C15D527AE000407B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3B15D527AE000407B3 /* UIKit.framework */; };
 		01862E3E15D527AE000407B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3D15D527AE000407B3 /* Foundation.framework */; };
 		01862E4015D527AE000407B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01862E3F15D527AE000407B3 /* CoreGraphics.framework */; };
@@ -72,6 +74,10 @@
 		011B658F15D53AFB00BCD87B /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		011B659015D53AFB00BCD87B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		011B659115D53AFB00BCD87B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		011B659E15D53D9800BCD87B /* DataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAPI.h; sourceTree = "<group>"; };
+		011B659F15D53D9800BCD87B /* DataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAPI.m; sourceTree = "<group>"; };
+		011B65A115D53EC900BCD87B /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		011B65A215D53EC900BCD87B /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		01862E3715D527AE000407B3 /* OpenMensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01862E3B15D527AE000407B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01862E3D15D527AE000407B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +213,10 @@
 		01862E6B15D527EF000407B3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				011B659E15D53D9800BCD87B /* DataAPI.h */,
+				011B659F15D53D9800BCD87B /* DataAPI.m */,
+				011B65A115D53EC900BCD87B /* NetworkController.h */,
+				011B65A215D53EC900BCD87B /* NetworkController.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -334,6 +344,8 @@
 				011B659B15D53AFB00BCD87B /* SBJsonTokeniser.m in Sources */,
 				011B659C15D53AFB00BCD87B /* SBJsonUTF8Stream.m in Sources */,
 				011B659D15D53AFB00BCD87B /* SBJsonWriter.m in Sources */,
+				011B65A015D53D9800BCD87B /* DataAPI.m in Sources */,
+				011B65A315D53EC900BCD87B /* NetworkController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
