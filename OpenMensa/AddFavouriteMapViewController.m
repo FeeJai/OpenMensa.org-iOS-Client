@@ -183,11 +183,27 @@
 #pragma mark - MKMapViewDelegate protocol
 
 -(void)refreshPins {
-    NSLog(@"refreshing");
+
     NSArray *annotations = [mapView annotations];
     
-    [mapView removeAnnotations:annotations];
-    [mapView addAnnotations:annotations];
+    for(AddressAnnotation *annotation in annotations) {
+        
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*) [mapView viewForAnnotation:annotation];
+        
+        UIButton *rightCalloutAccessory = nil;
+        
+        if ([favourites cafeteriaIsFavourite:[annotation cafeteriaID]]) {
+            pinView.pinColor = MKPinAnnotationColorPurple;
+        } else {
+            pinView.pinColor = MKPinAnnotationColorRed;
+            rightCalloutAccessory = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        }
+        
+        pinView.animatesDrop = YES;
+        pinView.canShowCallout = YES;
+        pinView.rightCalloutAccessoryView = rightCalloutAccessory;
+    }
+    
 }
 
 
